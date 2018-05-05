@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>All Params</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h2>GET params</h2>
+      <ul>
+        <% Object.keys(allGETParams).forEach(function(prop) { %>
+          <li><strong><%- prop %></strong>:<%- allGETParams[prop] %></li>
+        <% }); %>
+      </ul>
+    <h2>POST params</h2>
+      <ul>
+        <% Object.keys(allPOSTParams).forEach(function(prop) { %>
+          <li><strong><%- prop %></strong>:<%- allPOSTParams[prop] %></li>
+        <% }); %>
+      </ul>
+  </body>
+</html>
