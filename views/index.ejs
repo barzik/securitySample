@@ -6,7 +6,16 @@
   </head>
   <body>
     <h1>Lecture</h1>
+    <h2>XSS</h2>
+    <p><a href="/examples/xss?id=1">XSS Simple sample</a></p>
+    <p><a href="/examples/xss?id=%3Cstyle%3Ebody%20{background-color:red}%3C/style%3E">XSS Demi sample</a></p>
+    <p><a href="/examples/xss?name=moshe">XSS by JS code</a>, now with <a href='/examples/xss?name=";alert(1);"'>JS</a></p>
+    <p><a href="/examples/xss?videosrc=https://www.w3schools.com/tags/movie.ogg">XSS by HTML5 code</a>, now with <a href='/examples/xss/?videosrc=" onerror="alert(1)"'>JS</a></p>
+    <h2>Cookies 101</h2>
+    <p><a href="/examples/cookie">Create non HTTP only cookie</a></p>
+    <p><a href="/examples/httpcookie">Create HTTP only cookie</a></p>
     <h2>CSRF</h2>
     <p><a href="/examples/csrf">Page to attack</a> - <a href="/examples/csrf-attack">Attack example</a></p>
   </body>
 </html>
+
