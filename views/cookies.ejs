@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cookies</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Cookies</h1>
+    <p>Get all cookies!</p>
+    <p>Printing cookie value by document.cookie</p>
+    <pre>document.cookie;</pre>
+    <div id="cookieValue"></div>
+    <p>Pay attention that HTTP only cookies are not there</p>
+    <script>
+    document.getElementById('cookieValue').innerText = document.cookie;
+    </script>
+  </body>
+</html>

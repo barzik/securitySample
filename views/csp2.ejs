@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSP</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta http-equiv="Content-Security-Policy" 
+    content="default-src 'self'; img-src *">
+  </head>
+  <body>
+    <h1>CSP</h1>
+    <p>Block all resources but not image src</p>
+    <p>Here is Youtube embedded movie by iframe</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/9CtDPWxsuJo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <p>Here is Video embedded from Vimeo</p>
+    <iframe src="https://player.vimeo.com/video/74987731" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <p>Here is an image from lorem pixum</p>
+    <img src="https://picsum.photos/200/300/?random" />
+  </body>
+</html>

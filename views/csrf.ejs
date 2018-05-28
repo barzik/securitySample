@@ -7,6 +7,7 @@
   <body>
     <h1>CSRF example - imagine that this is a bank page</h1>
    <form action="/examples/show-all-params" method="get">
+       <input id="username" name="username" type="hidden" value="MosheCohen"/>
        Transfer $<input type="number" id="sum" name="sum" /> to bank account <input type="text" id="name" name="name" />
        <button type="submit">Send</button>
    </form>
