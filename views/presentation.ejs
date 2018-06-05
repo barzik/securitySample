@@ -39,7 +39,7 @@
             <textarea data-template>
               ## Refelective "XSS"
               ### You can still cheat
-              See [this example](/examples/xss?id=%3Cstyle%3Ebody%20{background-color:red}%3C/style%3E)
+              See [this example](/examples/xss?id=%3Cstyle%3Ebody%20{background-color:red}%3C/style%3E%3Ch1%3EThis%20is%20my%20site!%3C/h1%3E%3Ch2%3EYou%20owe%20me%20a%20lot%20of%20money!%20pay%20now%20in%20%3Ca%20href=evil.com%3EThis%20form%3C/a%3E%3C/h2%3E)
             </textarea>
   				</section>
   				<section>
@@ -61,6 +61,8 @@
               - Secured
               - HTTP
               - SameType
+              
+              ![alt text](/images/cookie.png "Cookie!")
             </textarea>
     			</section>
     			<section data-markdown>
@@ -143,7 +145,7 @@
 				  <section data-markdown>
             <textarea data-template>
               ## ClickJacking
-              ### Stealling user action and session
+              ### Stealing user action and session
               Simple [page](/examples/clickjackingd) that we will attack
               The [attack](/examples/clickjacking)
             </textarea>

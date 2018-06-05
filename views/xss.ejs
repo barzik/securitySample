@@ -6,6 +6,9 @@
   </head>
   <body>
     <h1>XSS</h1>
+    <% if(allGETParams['id']) { %>
+      <p>URL: /examples/xss?name=<%- encodeURI(allGETParams['id']) %></p>
+    <% } %>
       <%- allGETParams['id'] %>
       <div id="text">
         
@@ -14,11 +17,17 @@
         
       </div>
   </body>
+  <% if(allGETParams['name']) { %>
+  <p>URL: /examples/xss?name=<%- encodeURI(allGETParams['name']) %></p>
+  <% } %>
   <script>
   <% if(allGETParams['name']) { %>
     document.getElementById('text').innerHTML = "Sorry mister, this page is missing, no <%- allGETParams['name'] %>";
     <% } %>
   </script>
+  <% if(allGETParams['videosrc']) { %>
+    <p>URL: /examples/xss?videosrc=<%- encodeURI(allGETParams['videosrc']) %></p>
+  <% } %>
   <script>
   <% if(allGETParams['videosrc']) { %>
     document.getElementById('video').innerHTML = '<video width="320" height="240" controls src="<%- allGETParams['videosrc'] %>"></video>';
