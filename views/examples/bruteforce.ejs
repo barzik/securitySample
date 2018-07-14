@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ClickJacking</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>My Very secret login page!</h1>
+  <div>
+    <% if (allPOSTParams['password'] === 'admin') { %>
+      <strong>Success Login!</strong>
+    <% } %>
+    <% if (allPOSTParams['password'] && allPOSTParams['password'] !== 'admin') { %>
+      <strong>Bad login!</strong>
+    <% } %>
+
+    <% if (!allPOSTParams['password'] || allPOSTParams['password'] !== 'admin') { %>
+    <h2>Please insert password!</h2>
+    <form method="post">
+      <label for="password"></label>
+      <input type="password" id="password" name="password" />
+      <button type="submit">Submit</button>
+    </form>
+    <% } %>
+  </div>
+  
+
+  </body>
+</html>

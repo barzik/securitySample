@@ -12,8 +12,9 @@
 			<div class="slides">
 				<section data-markdown>
           <textarea data-template>
-            ## Security on client side
-            ## Ran Bar-Zik
+            ## Detecting JS Security Issues
+            ### (Tales From The Battlefield) 
+            ### Ran Bar-Zik
             #### Developer @ Oath Israel (Yahoo + AOL = unpronounceable)
               - Twitter: @barzik
               - Telegram: interil
@@ -24,73 +25,109 @@
 				<section>
   				<section data-markdown>
             <textarea data-template>
-              # XSS
-              ## Cross site scripting
+              # With all due respect...
+              Most of the client side in the world look like this:
+              ![alt text](/images/live-site-example/comment-1.png "Bad code!")
+            </textarea>
+    			</section>
+    			 <section data-markdown>
+            <textarea data-template>
+              # Or like this...
+              ![alt text](/images/live-site-example/comment-2.png "Bad code!")
+            </textarea>
+    			</section>
+    			 <section data-markdown>
+            <textarea data-template>
+              # Or like this 
+              #### (yup, this is real one folks!)
+              ![alt text](/images/live-site-example/comment-3.jpg "Bad code! ")
+              ###### <a href="https://twitter.com/noamr/status/1005107250330001409">Thanks Noam Rotem on this </a>
+            </textarea>
+    			</section>
+  			</section>
+				<section>
+  				<section data-markdown>
+            <textarea data-template>
+              # Bruteforce attack
+              ## What is bruteforce?
             </textarea>
   				</section>
   				<section data-markdown>
             <textarea data-template>
-              ## Refelective XSS
-              ### Almost dead, dead to me
-              Simple to understand XSS, See [this example](/examples/xss?id=1)
+              ## Simple bruteforce
+              ### Naaa 
+              See [this example](/examples/bruteforce)
             </textarea>
   				</section>
   				<section data-markdown>
             <textarea data-template>
-              ## Refelective "XSS"
-              ### You can still cheat
-              See [this example](/examples/xss?id=%3Cstyle%3Ebody%20{background-color:red}%3C/style%3E%3Ch1%3EThis%20is%20my%20site!%3C/h1%3E%3Ch2%3EYou%20owe%20me%20a%20lot%20of%20money!%20pay%20now%20in%20%3Ca%20href=evil.com%3EThis%20form%3C/a%3E%3C/h2%3E)
+              ## Bruteforce protection on server side
+              See [this example](/examples/bruteforce-protected)
+              ###### Implemented in express - view live coding
             </textarea>
   				</section>
-  				<section>
-            <h2>XSS with innerHTML - still live and kicking</h2>
-            <p><a href="/examples/xss?name=moshe">XSS by JS code</a>, now with <a href='/examples/xss?name=";alert(1);"'>real life demo</a></p>
+  				<section data-markdown>
+            <textarea data-template>
+              ## This happened before... :(
+            </textarea>
   				</section>
-  				<section>
-            <h2>HTML5 XSS</h2>
-              <h3>A new interesting vector</h3>
-              <p><a href="/examples/xss?videosrc=https://www.w3schools.com/tags/movie.ogg">XSS by HTML5 code</a>, now with <a href='/examples/xss/?videosrc=" onerror="alert(1)"'>JS</a></p>
-              <p>More at <a href="https://html5sec.org/">html5sec</a></p>
+  				<section data-markdown>
+            <textarea data-template>
+              ## Here
+              ![alt text](/images/live-site-example/brute-force-example/bbb1.png "Haavoda")
+            </textarea>
+  				</section>
+  				<section data-markdown>
+            <textarea data-template>
+              ## Also Here
+              ![alt text](/images/live-site-example/brute-force-example/bbb2.png "Likud")
+            </textarea>
+  				</section>
+  				<section data-markdown>
+            <textarea data-template>
+              ## Here as well...
+              ![alt text](/images/live-site-example/brute-force-example/bbb3.png "Bait Leumi")
+            </textarea>
+  				</section>
+  				<section data-markdown>
+            <textarea data-template>
+              ## Oh, facepalm
+              ![alt text](/images/live-site-example/brute-force-example/bbb4.png "Rami Levi")
+            </textarea>
   				</section>
 				</section>
 				<section>
 				  <section data-markdown>
             <textarea data-template>
-              ## Cookies101
-              ### Three types of cookies:
-              - Secured
-              - HTTP
-              - SameType
-              
-              ![alt text](/images/cookie.png "Cookie!")
+              ## Do not store nothing on client
+              ### Yes, nothing. I mean it.
+              Let me tell you a story.... 
             </textarea>
     			</section>
     			<section data-markdown>
             <textarea data-template>
-              ## Cookie creation
-              ```javascript
-              let a = new Date();
-              a = new Date(a.getTime() +1000*60*60*24*365);
-              document.cookie = `mycookie=somevalue; expires=${a.toGMTString()};`;
+              ## A coupon number was inserted
+              ![alt text](/images/live-site-example/night-run-1.png "Coupon")
+            </textarea>
+    			</section>
+    			<section data-markdown>
+            <textarea data-template>
+              ## But the network is done
+              ![alt text](/images/live-site-example/night-run-2.png "Coupon")
+            </textarea>
+    			</section>
+    			<section data-markdown>
+            <textarea data-template>
+              ## All you need is love
               ```
-              Or by Server
-            </textarea>
-    			</section>
-    			<section data-markdown>
-            <textarea data-template>
-              ## HTTP Cookie creation
-              ### Server only
-              ```javascript
-              res.cookie('HTTPOnly','some value', { maxAge: 900000, httpOnly: true });
-              res.cookie('regularCookie','some value', { maxAge: 900000, httpOnly: false });
+              document.getElementById("ifrm").contentWindow.couponArray;
               ```
             </textarea>
     			</section>
     			<section data-markdown>
             <textarea data-template>
-              ## Demo
-              ### HTTP cookie cannot be stolen by script
-              [Example for HTTP cookie](/examples/cookies)
+              ## Prevention:
+              JUST DONT DO IT! transfer it to service, and protect it with brute force protection.
             </textarea>
     			</section>
 				</section>

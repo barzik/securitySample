@@ -12,7 +12,7 @@ router.get('/presentation-geektime-code-2018', function(req, res, next) {
 });
 
 router.get('/presentation-meetup-js-il-2018-07', function(req, res, next) {
-    res.render('presentation-meetup-js-il-2018-07');
+    res.render('presentations/presentation-meetup-js-il-2018-07');
 });
 
 
