@@ -4,7 +4,12 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('presentation', { title: 'Express' });
+    res.render('index', { title: 'Express' });
+});
+
+/* GET home page. */
+router.get('/presentation-geektime-code-2018', function(req, res, next) {
+    res.render('presentations/presentation-geektime-code-2018');
 });
 
 
