@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>All Params</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Cash transferred!</h1>
+    <h2>with the following POST params</h2>
+      <ul>
+        <% Object.keys(allPOSTParams).forEach(function(prop) { %>
+          <li><strong><%- prop %></strong>:<%- allPOSTParams[prop] %></li>
+        <% }); %>
+      </ul>
+  </body>
+</html>

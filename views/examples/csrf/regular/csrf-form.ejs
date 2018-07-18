@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSRF</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>CSRF example - imagine that this is a bank page</h1>
+   <form action="/examples/csrf-target" method="post">
+       <input id="username" name="username" type="hidden" value="MosheCohen"/>
+       Transfer $<input type="number" id="sum" name="sum" /> to bank account <input type="text" id="name" name="name" />
+       <button type="submit">Send</button>
+   </form>
+  </body>
+</html>

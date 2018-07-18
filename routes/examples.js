@@ -3,20 +3,44 @@ var router = express.Router();
 var ExpressBrute = require('express-brute');
 var store = new ExpressBrute.MemoryStore(); // THIS IS ONLY FOR DEMO, do not use it on prod please
 var bruteforce = new ExpressBrute(store, { minWait: 5000 });
+/* CSRF addition */
+const csurf = require('csurf');
+const bodyParser = require('body-parser');
+const parseForm = bodyParser.urlencoded({ extended: false })
+const csrfProtection = csurf({
+    cookie: true
+});
+/* end of CSRF addition */
 
 router.get('/csrf', function(req, res, next) {
-    res.render('examples/csrf');
+    res.render('examples/csrf/regular/csrf-form');
+});
+
+router.post('/csrf-target', function(req, res, next) {
+    res.render('examples/csrf/regular/csrf-target', { allGETParams: req.query, allPOSTParams: req.body });
 });
 
 router.get('/csrf-attack', function(req, res, next) {
-    res.render('examples/csrf-attack');
+    res.render('examples/csrf/regular/csrf-attack');
+});
+
+router.get('/csrf-defended', csrfProtection, function(req, res, next) {
+    res.render('examples/csrf/defended/csrf-form-defended', { token: req.csrfToken() });
+});
+
+router.post('/csrf-target-defended', csrfProtection, function(req, res, next) {
+    res.render('examples/csrf/defended/csrf-target-defended', { allGETParams: req.query, allPOSTParams: req.body });
+});
+
+router.get('/csrf-attack-on-defended-form', function(req, res, next) {
+    res.render('examples/csrf/defended/csrf-attack-on-defended-form');
 });
 
 router.get('/xss', function(req, res, next) {
     res.render('examples/xss', { allGETParams: req.query, allPOSTParams: req.body });
 });
 
-router.get('/show-all-params', function(req, res, next) {
+router.all('/show-all-params', parseForm, csrfProtection, function(req, res, next) {
     res.render('examples/show-all-params', { allGETParams: req.query, allPOSTParams: req.body });
 });
 
@@ -55,7 +79,6 @@ router.all('/bruteforce', function(req, res, next) {
 });
 
 router.all('/bruteforce-protected',
-    bruteforce.prevent, // CHECK OUT THIS!!!
     function(req, res, next) {
         res.render('examples/bruteforce', { allGETParams: req.query, allPOSTParams: req.body });
     });
