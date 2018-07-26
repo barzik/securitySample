@@ -79,6 +79,7 @@ router.all('/bruteforce', function(req, res, next) {
 });
 
 router.all('/bruteforce-protected',
+    bruteforce.prevent,
     function(req, res, next) {
         res.render('examples/bruteforce', { allGETParams: req.query, allPOSTParams: req.body });
     });
