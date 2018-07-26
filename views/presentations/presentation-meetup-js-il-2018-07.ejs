@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Front end security</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/reveal/css/reveal.css" />
+    <link rel="stylesheet" href="/reveal/css/theme/night.css" />
+    
+  </head>
+  <body>
+    <div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+          <textarea data-template>
+            ## Detecting JS Security Issues
+            ##### (Tales From The Battlefield) 
+            ### Ran Bar-Zik
+            ##### Developer @ Oath Israel (Yahoo + AOL = unpronounceable)
+              - Twitter: @barzik
+              - Telegram: interil
+              - web: internet-israel.com
+              - Github: barzik
+          </textarea>
+				</section>
+				<section data-markdown>
+          <textarea data-template>
+            ## Did I forgot to record my screen?
+          </textarea>
+				</section>
+				<section>
+  				<section data-markdown>
+            <textarea data-template>
+              # With all due respect...
+              Most of the client side in the world look like this:
+              ![alt text](/images/live-site-example/comment-1.png "Bad code!")
+            </textarea>
+    			</section>
+    			 <section data-markdown>
+            <textarea data-template>
+              # Or like this...
+              ![alt text](/images/live-site-example/comment-2.png "Bad code!")
+            </textarea>
+    			</section>
+    			 <section data-markdown>
+            <textarea data-template>
+              # Or like this 
+              #### (yup, this is real one folks!)
+              ![alt text](/images/live-site-example/comment-3.jpg "Bad code! ")
+              ###### <a href="https://twitter.com/noamr/status/1005107250330001409">Thanks Noam Rotem on this </a>
+            </textarea>
+    			</section>
+  			</section>
+				<section>
+  				<section data-markdown>
+            <textarea data-template>
+              # Bruteforce attack
+              ## What is bruteforce?
+            </textarea>
+  				</section>
+  				<section data-markdown>
+            <textarea data-template>
+              ## Simple bruteforce
+              ### Naaa 
+              See [this example](/examples/bruteforce)
+            </textarea>
+  				</section>
+  				<section data-markdown>
+            <textarea data-template>
+              ## Bruteforce protection on server side
+              See [this example](/examples/bruteforce-protected)
+              ###### Implemented in express - view live coding
+            </textarea>
+  				</section>
+  				<section data-markdown>
+            <textarea data-template>
+              ## This happened before... :(
+            </textarea>
+  				</section>
+  				<section data-markdown>
+            <textarea data-template>
+              ## Here
+              ![alt text](/images/live-site-example/brute-force-example/bbb1.png "Haavoda")
+            </textarea>
+  				</section>
+  				<section data-markdown>
+            <textarea data-template>
+              ## Also Here
+              ![alt text](/images/live-site-example/brute-force-example/bbb2.png "Likud")
+            </textarea>
+  				</section>
+  				<section data-markdown>
+            <textarea data-template>
+              ## Here as well...
+              ![alt text](/images/live-site-example/brute-force-example/bbb3.png "Bait Leumi")
+            </textarea>
+  				</section>
+  				<section data-markdown>
+            <textarea data-template>
+              ## Oh, facepalm
+              ![alt text](/images/live-site-example/brute-force-example/bbb4.png "Rami Levi")
+            </textarea>
+  				</section>
+				</section>
+				<section>
+				  <section data-markdown>
+            <textarea data-template>
+              ## Do not store nothing on client
+              ### Yes, nothing. I mean it.
+              Let me tell you a story.... 
+            </textarea>
+    			</section>
+    			<section data-markdown>
+            <textarea data-template>
+              ## A coupon number was inserted
+              ![alt text](/images/live-site-example/night-run-1.png "Coupon")
+            </textarea>
+    			</section>
+    			<section data-markdown>
+            <textarea data-template>
+              ## But the network is done
+              ![alt text](/images/live-site-example/night-run-2.png "Coupon")
+            </textarea>
+    			</section>
+    			<section data-markdown>
+            <textarea data-template>
+              ## All you need is love
+              ```
+              document.getElementById("ifrm").contentWindow.couponArray;
+              ```
+            </textarea>
+    			</section>
+    			<section data-markdown>
+            <textarea data-template>
+              ## Prevention:
+              JUST DONT DO IT! transfer it to service, and protect it with brute force protection.
+            </textarea>
+    			</section>
+				</section>
+				<section>
+    			<section data-markdown>
+            <textarea data-template>
+              ## Data disclosure
+              ### Please dont
+            </textarea>
+    			</section>
+    			<section data-markdown>
+            <textarea data-template>
+              ### The sad sad story of a major TV channel in Israel
+              ![alt text](/images/live-site-example/reshet-example-1.png "Reshet")
+            </textarea>
+    			</section>
+    			<section data-markdown>
+            <textarea data-template>
+              ### The nemesis
+              ![alt text](/images/live-site-example/reshet-example-2.png "Reshet")
+            </textarea>
+    			</section>
+    			<section data-markdown>
+            <textarea data-template>
+              ## Prevention:
+              Don't be stupid and don't support anti-vaxxers.
+            </textarea>
+    			</section>
+				</section>
+				<section>
+				  <section data-markdown>
+            <textarea data-template>
+              ## CSRF
+              ### Cross Site Request Forgery
+              Simple [page](/examples/csrf)
+              Simple [attack](/examples/csrf-attack) on the page
+            </textarea>
+    			</section>
+				    <section data-markdown>
+              <textarea data-template>
+                ## CSRF Defense
+                Simple [page](/examples/csrf-defended) defended
+                Simple [attack](/examples/csrf-attack-on-defended-form) on the defended page
+              </textarea>
+    			  </section>
+				</section>
+				<section>
+				  <section data-markdown>
+            <textarea data-template>
+              ## Protect yourself
+              ### Eslint catastrophe
+              ![alt text](/images/live-site-example/npm-headline.png "NPM")
+            </textarea>
+    			</section>
+				  <section data-markdown>
+            <textarea data-template>
+              ## What happened?
+              ![alt text](/images/live-site-example/eslint-compromise.png "NPM")
+            </textarea>
+    			</section>
+    			<section data-markdown>
+            <textarea data-template>
+              ## Protect thyself!
+              1. 2FA.
+              1. Password manager + different password for each site.
+              1. Do not store password locally.
+            </textarea>
+    			</section>		
+				</section>
+				<section data-markdown>
+          <textarea data-template>
+            ## Thank you!
+            ### I was Ran Bar-Zik from OATH :)
+            ### The presentation is on Github: barzik.
+            ### Talk to me: @barzik or LinkedIn.
+            #### internet-israel.com
+            ###### Hosted on Cloud9\Amazon and used reveal.js 
+          </textarea>
+    		</section>		
+			</div>
+		</div>
+  </body>
+  <script src="/reveal/js/reveal.js"></script>
+  <script src="/reveal/plugin/markdown/marked.js"></script>
+  <script src="/reveal/plugin/markdown/markdown.js"></script>
+  
+  <script>
+			Reveal.initialize();
+	</script>
+</html>
+

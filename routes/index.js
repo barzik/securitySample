@@ -7,9 +7,12 @@ router.get('/', function(req, res, next) {
     res.render('index', { title: 'Express' });
 });
 
-/* GET home page. */
 router.get('/presentation-geektime-code-2018', function(req, res, next) {
     res.render('presentations/presentation-geektime-code-2018');
+});
+
+router.get('/presentation-meetup-js-il-2018-07', function(req, res, next) {
+    res.render('presentations/presentation-meetup-js-il-2018-07');
 });
 
 

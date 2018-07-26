@@ -6,9 +6,10 @@
   </head>
   <body>
     <h1>CSRF example - imagine that this is a bank page</h1>
-   <form action="/examples/show-all-params" method="get">
+   <form action="/examples/csrf-target-defended" method="post">
        <input id="username" name="username" type="hidden" value="MosheCohen"/>
        Transfer $<input type="number" id="sum" name="sum" /> to bank account <input type="text" id="name" name="name" />
+       <input type="hidden" name="_csrf" value="<%= token %>" />
        <button type="submit">Send</button>
    </form>
   </body>
