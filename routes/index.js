@@ -16,5 +16,10 @@ router.get('/presentation-meetup-js-il-2018-07', function(req, res, next) {
 });
 
 
+router.get('/presentation-reversim-2018', function(req, res, next) {
+    res.render('presentations/presentation-reversim-2018');
+});
+
+
 
 module.exports = router;

