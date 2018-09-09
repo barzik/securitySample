@@ -6,6 +6,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const examplesRouter = require('./routes/examples');
+const shellInjectionRouter = require('./routes/shellinjection');
+
 
 const app = express();
 
@@ -24,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/reveal', express.static(__dirname + '/node_modules/reveal.js'));
 app.use('/', indexRouter);
 app.use('/examples', examplesRouter);
+app.use('/shellinjection', shellInjectionRouter);
 
 
 // catch 404 and forward to error handler

