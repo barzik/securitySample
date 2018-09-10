@@ -17,6 +17,7 @@
     "reveal.js": "github:hakimel/reveal.js#master"
   },
   "devDependencies": {
+    "eslint": "^5.5.0",
     "nodemon": "^1.17.3"
   }
 }

@@ -30,12 +30,62 @@
     			</section>
     			<section data-markdown>
             <textarea data-template>
-              ### Winds of changing
+              ### Winds of change
               #### BUT STILL DO NOT HACK
               ![alt text](/images/news/globes-09-2018.png "Globes 2018 Sep")
             </textarea>
     			</section>
+    			<section data-markdown>
+            <textarea data-template>
+              # Why do we learn it?
+              #### Learn to break === Learn to protect
+            </textarea>
+    			</section>
         </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              # JS injection
+              <p><a href="/shellinjection/ssjs" target="_blank">Simple example of the vulnerability</a></p>
+            </textarea>
+      		</section>
+      		<section data-markdown>
+            <textarea data-template>
+              # JS injection demo
+              <p><a href="/shellinjection/ssjs-attack" target="_blank">Simple example of the attack</a></p>
+            </textarea>
+    		  </section>
+    		  <section data-markdown>
+            <textarea data-template>
+              # Prevention
+              Don't use eval. You can use [Eslint no-eval](https://eslint.org/docs/rules/no-eval) rule.
+              Example: `node_modules/eslint/bin/eslint.js -c ./.eslintrc-ssjs routes/shellinjection.js `
+            </textarea>
+    		  </section>
+    		  <section data-markdown>
+            <textarea data-template>
+              # Implied eval
+              Eval is not only eval. it is in a lot of places. For example setTimeout. 
+              ```
+              setTimeout("console.log('I am executing text just like eval!')",1000);
+              ```
+              But it is not relevant for node.js
+              But it is good idea to make sure that no one will use strings in setTimeout by using [no-implied-eval rule in eslint](https://eslint.org/docs/rules/no-implied-eval).
+            </textarea>
+    		  </section>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              # Command injection
+              Almost like JS injection
+              <p><a href="/shellinjection/command-injection" target="_blank">Simple example of vulnerability</a></p>
+              <p><a href="/shellinjection/command-injection-attack" target="_blank">Simple example of attack</a></p>
+            </textarea>
+    		  </section>
+        </section>
+
+
 				<section data-markdown>
           <textarea data-template>
             ## Thank you!
