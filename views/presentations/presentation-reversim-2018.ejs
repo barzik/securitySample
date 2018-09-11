@@ -85,22 +85,54 @@
     		  </section>
     		  <section data-markdown>
             <textarea data-template>
-              # Command injection defense
+              ## Command injection defense
               1. Use spawn (avoid `{shell: true}`) See [this PR](https://github.com/barzik/branch-name-lint/pull/5/files) for example.
               1. Validate everything.
             </textarea>
     		  </section>
         </section>
-        <section>
-          <section data-markdown>
+        <section data-markdown>
+          <textarea data-template>
+            ### intermezzo: validatation VS sanitization
+            ![alt text](/images/validationVSSanitization.png "validation VS Sanitization")
+            <a href="/validate">Demo of validate and sanitize</a>
+          </textarea>
+  		  </section>
+  		  <section>
+        <section data-markdown>
+          <textarea data-template>
+            # XSS
+            ## The reason for sanitization - Sanitization if we failed to validate.
+          </textarea>
+  		  </section>
+  				<section>
+            <h2>XSS with innerHTML - still alive and kicking</h2>
+            <p><a href="/examples/xss?name=moshe">XSS by JS code</a>, now with <a href='/examples/xss?name=";alert(1);"'>real life demo</a></p>
+  				</section>
+  				<section>
+            <h2>HTML5 XSS</h2>
+              <h3>A new interesting vector</h3>
+              <p><a href="/examples/xss?videosrc=https://www.w3schools.com/tags/movie.ogg">XSS by HTML5 code</a>, now with <a href='/examples/xss/?videosrc=" onerror="alert(1)"'>JS</a></p>
+              <p>More at <a href="https://html5sec.org/">html5sec</a></p>
+  				</section>
+      </section>
+      <section>
+				<section data-markdown>
+          <textarea data-template>
+            ## CSRF
+            ### Cross Site Request Forgery
+            Simple [page](/examples/csrf)
+            Simple [attack](/examples/csrf-attack) on the page
+          </textarea>
+  			</section>
+			    <section data-markdown>
             <textarea data-template>
-              # intermezzo: validatation VS sanitizatipn
-              ![alt text](/images/validationVSSanitization.png "validation VS Sanitization")
+              ## CSRF Defense
+              Simple [page](/examples/csrf-defended) defended
+              Simple [attack](/examples/csrf-attack-on-defended-form) on the defended page
             </textarea>
-    		  </section>
-        </section>
-
-
+  			  </section>
+				</section>
 				<section data-markdown>
           <textarea data-template>
             ## Thank you!
