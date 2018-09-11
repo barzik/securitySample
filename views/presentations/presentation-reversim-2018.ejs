@@ -45,19 +45,19 @@
         <section>
           <section data-markdown>
             <textarea data-template>
-              # JS injection
+              # Server side Javascript injection (SSJS)
               <p><a href="/shellinjection/ssjs" target="_blank">Simple example of the vulnerability</a></p>
             </textarea>
       		</section>
       		<section data-markdown>
             <textarea data-template>
-              # JS injection demo
+              # SSJS demo
               <p><a href="/shellinjection/ssjs-attack" target="_blank">Simple example of the attack</a></p>
             </textarea>
     		  </section>
     		  <section data-markdown>
             <textarea data-template>
-              # Prevention
+              # SSJS Prevention
               Don't use eval. You can use [Eslint no-eval](https://eslint.org/docs/rules/no-eval) rule.
               Example: `node_modules/eslint/bin/eslint.js -c ./.eslintrc-ssjs routes/shellinjection.js `
             </textarea>
@@ -81,6 +81,21 @@
               Almost like JS injection
               <p><a href="/shellinjection/command-injection" target="_blank">Simple example of vulnerability</a></p>
               <p><a href="/shellinjection/command-injection-attack" target="_blank">Simple example of attack</a></p>
+            </textarea>
+    		  </section>
+    		  <section data-markdown>
+            <textarea data-template>
+              # Command injection defense
+              1. Use spawn (avoid `{shell: true}`) See [this PR](https://github.com/barzik/branch-name-lint/pull/5/files) for example.
+              1. Validate everything.
+            </textarea>
+    		  </section>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              # intermezzo: validatation VS sanitizatipn
+              ![alt text](/images/validationVSSanitization.png "validation VS Sanitization")
             </textarea>
     		  </section>
         </section>

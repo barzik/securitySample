@@ -38,6 +38,13 @@ router.post('/command-injection-api', function(req, res, next) {
         });
 });
 
+router.post('/command-injection-api-protected', function(req, res, next) {
+    const spawn = require('child_process').spawn;
+    const child = spawn('tar' ["cvzf", "./public/staticdemofiles/demo.tar", "./public/staticdemofiles/" + req.body.file_path]);
+    child.on('close', () => {
+        res.download('./public/staticdemofiles/demo.tar');
+    });
+});
 
 
 module.exports = router;
