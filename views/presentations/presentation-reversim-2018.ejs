@@ -95,54 +95,69 @@
           <textarea data-template>
             ### intermezzo: validatation VS sanitization
             ![alt text](/images/validationVSSanitization.png "validation VS Sanitization")
-            <a href="/validate">Demo of validate and sanitize</a>
+            <br /><a href="/validate">Demo of validate and sanitize</a>
           </textarea>
   		  </section>
   		  <section>
-        <section data-markdown>
-          <textarea data-template>
-            # XSS
-            ## The reason for sanitization - Sanitization if we failed to validate.
-          </textarea>
-  		  </section>
+          <section data-markdown>
+            <textarea data-template>
+              # XSS
+              ## Stored XSS VS Reflective XSS
+            </textarea>
+    		  </section>
+    		  <section data-markdown>
+            <textarea data-template>
+              ## Stored XSS
+              ![alt text](/images/stored-xss-example.png "Stored XSS example (not real)")
+              <br /><small>Prevention: Sanitization.</small>
+            </textarea>
+    		  </section>
+    		  <section data-markdown>
+            <textarea data-template>
+              ## Refelective XSS
+              The naive [example](/examples/xss?id=1)
+              Second approach: [this example](/examples/xss?id=%3Cstyle%3Ebody%20{background-color:red}%3C/style%3E%3Ch1%3EThis%20is%20my%20site!%3C/h1%3E%3Ch2%3EYou%20owe%20me%20a%20lot%20of%20money!%20pay%20now%20in%20%3Ca%20href=evil.com%3EThis%20form%3C/a%3E%3C/h2%3E)
+            </textarea>
+  				</section>
   				<section>
-            <h2>XSS with innerHTML - still alive and kicking</h2>
+            <h2>Reflective XSS with innerHTML - still alive and kicking</h2>
             <p><a href="/examples/xss?name=moshe">XSS by JS code</a>, now with <a href='/examples/xss?name=";alert(1);"'>real life demo</a></p>
   				</section>
   				<section>
-            <h2>HTML5 XSS</h2>
+            <h2>HTML5 Reflective XSS</h2>
               <h3>A new interesting vector</h3>
               <p><a href="/examples/xss?videosrc=https://www.w3schools.com/tags/movie.ogg">XSS by HTML5 code</a>, now with <a href='/examples/xss/?videosrc=" onerror="alert(1)"'>JS</a></p>
               <p>More at <a href="https://html5sec.org/">html5sec</a></p>
   				</section>
-      </section>
-      <section>
-				<section data-markdown>
-          <textarea data-template>
-            ## CSRF
-            ### Cross Site Request Forgery
-            Simple [page](/examples/csrf)
-            Simple [attack](/examples/csrf-attack) on the page
-          </textarea>
-  			</section>
-			    <section data-markdown>
+        </section>
+        <section>
+  				<section data-markdown>
             <textarea data-template>
-              ## CSRF Defense
-              Simple [page](/examples/csrf-defended) defended
-              Simple [attack](/examples/csrf-attack-on-defended-form) on the defended page
+              ## CSRF
+              ### Cross Site Request Forgery
+              Simple [page](/examples/csrf)
+              Simple [attack](/examples/csrf-attack) on the page
             </textarea>
-  			  </section>
-				</section>
-				<section data-markdown>
-          <textarea data-template>
-            ## Thank you!
-            ### I was Ran Bar-Zik from OATH :)
-            ### The presentaion is on Github: barzik.
-            ### Talk to me: @barzik or LinkedIn.
-            #### internet-israel.com
-            ###### Hosted on Cloud9\Amazon and used reveal.js 
-          </textarea>
-    		</section>		
+    			</section>
+  			    <section data-markdown>
+              <textarea data-template>
+                ## CSRF Defense
+                Simple [page](/examples/csrf-defended) defended
+                
+                Simple [attack](/examples/csrf-attack-on-defended-form) on the defended page
+              </textarea>
+    			  </section>
+  				</section>
+  				<section data-markdown>
+            <textarea data-template>
+              ## Thank you!
+              ### I was Ran Bar-Zik from OATH :)
+              ### The presentaion is on Github: barzik.
+              ### Talk to me: @barzik or LinkedIn.
+              #### internet-israel.com
+              ###### Hosted on Cloud9\Amazon and used reveal.js 
+            </textarea>
+      		</section>		
 			</div>
 		</div>
   </body>
