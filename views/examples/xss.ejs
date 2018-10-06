@@ -9,7 +9,7 @@
     <% if(allGETParams['id']) { %>
       <p>URL: /examples/xss?name=<%- encodeURI(allGETParams['id']) %></p>
     <% } %>
-      <%- allGETParams['id'] %>
+      <%= allGETParams['id'] %>
       <div id="text">
         
       </div>

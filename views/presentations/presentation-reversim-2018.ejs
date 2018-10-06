@@ -45,19 +45,19 @@
         <section>
           <section data-markdown>
             <textarea data-template>
-              # Server side Javascript injection (SSJS)
+              ### Server side Javascript injection (SSJS)
               <p><a href="/shellinjection/ssjs" target="_blank">Simple example of the vulnerability</a></p>
             </textarea>
       		</section>
       		<section data-markdown>
             <textarea data-template>
-              # SSJS demo
+              ### SSJS demo
               <p><a href="/shellinjection/ssjs-attack" target="_blank">Simple example of the attack</a></p>
             </textarea>
     		  </section>
     		  <section data-markdown>
             <textarea data-template>
-              # SSJS Prevention
+              ## SSJS Prevention
               Don't use eval. You can use [Eslint no-eval](https://eslint.org/docs/rules/no-eval) rule.
               Example: `node_modules/eslint/bin/eslint.js -c ./.eslintrc-ssjs routes/shellinjection.js `
             </textarea>
@@ -77,7 +77,7 @@
         <section>
           <section data-markdown>
             <textarea data-template>
-              # Command injection
+              ## Command injection
               Almost like JS injection
               <p><a href="/shellinjection/command-injection" target="_blank">Simple example of vulnerability</a></p>
               <p><a href="/shellinjection/command-injection-attack" target="_blank">Simple example of attack</a></p>
@@ -87,6 +87,7 @@
             <textarea data-template>
               ## Command injection defense
               1. Use spawn (avoid `{shell: true}`) See [this PR](https://github.com/barzik/branch-name-lint/pull/5/files) for example.
+              1. Or use any other command that use arguments instead of string.
               1. Validate everything.
             </textarea>
     		  </section>
@@ -112,13 +113,6 @@
               <br /><small>Prevention: Sanitization.</small>
             </textarea>
     		  </section>
-    		  <section data-markdown>
-            <textarea data-template>
-              ## Refelective XSS
-              The naive [example](/examples/xss?id=1)
-              Second approach: [this example](/examples/xss?id=%3Cstyle%3Ebody%20{background-color:red}%3C/style%3E%3Ch1%3EThis%20is%20my%20site!%3C/h1%3E%3Ch2%3EYou%20owe%20me%20a%20lot%20of%20money!%20pay%20now%20in%20%3Ca%20href=evil.com%3EThis%20form%3C/a%3E%3C/h2%3E)
-            </textarea>
-  				</section>
   				<section>
             <h2>Reflective XSS with innerHTML - still alive and kicking</h2>
             <p><a href="/examples/xss?name=moshe">XSS by JS code</a>, now with <a href='/examples/xss?name=";alert(1);"'>real life demo</a></p>
@@ -128,6 +122,11 @@
               <h3>A new interesting vector</h3>
               <p><a href="/examples/xss?videosrc=https://www.w3schools.com/tags/movie.ogg">XSS by HTML5 code</a>, now with <a href='/examples/xss/?videosrc=" onerror="alert(1)"'>JS</a></p>
               <p>More at <a href="https://html5sec.org/">html5sec</a></p>
+  				</section>
+  				<section>
+            <h2>XSS Prevention</h2>
+              <h3>Use innerText</h3>
+              <h3>Sanitization</h3>
   				</section>
         </section>
         <section>
