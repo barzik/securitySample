@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CSRF</title>
+    <title>XSS</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
@@ -9,7 +9,7 @@
     <% if(allGETParams['id']) { %>
       <p>URL: /examples/xss?name=<%- encodeURI(allGETParams['id']) %></p>
     <% } %>
-      <%- allGETParams['id'] %>
+      <%= allGETParams['id'] %>
       <div id="text">
         
       </div>

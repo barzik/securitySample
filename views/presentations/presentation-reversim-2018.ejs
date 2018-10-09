@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Front end security</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/reveal/css/reveal.css" />
+    <link rel="stylesheet" href="/reveal/css/theme/night.css" />
+    
+  </head>
+  <body>
+    <div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+          <textarea data-template>
+            ## Web security
+            ## Ran Bar-Zik
+            #### Developer @ Oath Israel (Yahoo + AOL = unpronounceable)
+              - Twitter: @barzik
+              - Telegram: interil
+              - web: internet-israel.com
+              - Github: barzik
+          </textarea>
+				</section>
+				<section>
+    			<section data-markdown>
+            <textarea data-template>
+              # Legal information
+              ## DO NOT HACK
+            </textarea>
+    			</section>
+    			<section data-markdown>
+            <textarea data-template>
+              ### Winds of change
+              #### BUT STILL DO NOT HACK
+              ![alt text](/images/news/globes-09-2018.png "Globes 2018 Sep")
+            </textarea>
+    			</section>
+    			<section data-markdown>
+            <textarea data-template>
+              # Why do we learn it?
+              #### Learn to break === Learn to protect
+            </textarea>
+    			</section>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              ### Server side Javascript injection (SSJS)
+              <p><a href="/shellinjection/ssjs" target="_blank">Simple example of the vulnerability</a></p>
+            </textarea>
+      		</section>
+      		<section data-markdown>
+            <textarea data-template>
+              ### SSJS demo
+              <p><a href="/shellinjection/ssjs-attack" target="_blank">Simple example of the attack</a></p>
+            </textarea>
+    		  </section>
+    		  <section data-markdown>
+            <textarea data-template>
+              ## SSJS Prevention
+              Don't use eval. You can use [Eslint no-eval](https://eslint.org/docs/rules/no-eval) rule.
+              Example: `node_modules/eslint/bin/eslint.js -c ./.eslintrc-ssjs routes/shellinjection.js `
+            </textarea>
+    		  </section>
+    		  <section data-markdown>
+            <textarea data-template>
+              # Implied eval
+              Eval is not only eval. it is in a lot of places. For example setTimeout. 
+              ```
+              setTimeout("console.log('I am executing text just like eval!')",1000);
+              ```
+              But it is not relevant for node.js
+              But it is good idea to make sure that no one will use strings in setTimeout by using [no-implied-eval rule in eslint](https://eslint.org/docs/rules/no-implied-eval).
+            </textarea>
+    		  </section>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              ## Command injection
+              Almost like JS injection
+              <p><a href="/shellinjection/command-injection" target="_blank">Simple example of vulnerability</a></p>
+              <p><a href="/shellinjection/command-injection-attack" target="_blank">Simple example of attack</a></p>
+            </textarea>
+    		  </section>
+    		  <section data-markdown>
+            <textarea data-template>
+              ## Command injection defense
+              1. Use spawn (avoid `{shell: true}`) See [this PR](https://github.com/barzik/branch-name-lint/pull/5/files) for example.
+              1. Or use any other command that use arguments instead of string.
+              1. Validate everything.
+            </textarea>
+    		  </section>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            ### intermezzo: validatation VS sanitization
+            ![alt text](/images/validationVSSanitization.png "validation VS Sanitization")
+            <br /><a href="/validate">Demo of validate and sanitize</a>
+          </textarea>
+  		  </section>
+  		  <section>
+          <section data-markdown>
+            <textarea data-template>
+              # XSS
+              ## Stored XSS VS Reflective XSS
+            </textarea>
+    		  </section>
+    		  <section data-markdown>
+            <textarea data-template>
+              ## Stored XSS
+              ![alt text](/images/stored-xss-example.png "Stored XSS example (not real)")
+              <br /><small>Prevention: Sanitization.</small>
+            </textarea>
+    		  </section>
+  				<section>
+            <h2>Reflective XSS with innerHTML - still alive and kicking</h2>
+            <p><a href="/examples/xss?name=moshe">XSS by JS code</a>, now with <a href='/examples/xss?name=";alert(1);"'>real life demo</a></p>
+  				</section>
+  				<section>
+            <h2>HTML5 Reflective XSS</h2>
+              <h3>A new interesting vector</h3>
+              <p><a href="/examples/xss?videosrc=https://www.w3schools.com/tags/movie.ogg">XSS by HTML5 code</a>, now with <a href='/examples/xss/?videosrc=" onerror="alert(1)"'>JS</a></p>
+              <p>More at <a href="https://html5sec.org/">html5sec</a></p>
+  				</section>
+  				<section>
+            <h2>XSS Prevention</h2>
+              <h3>Use innerText</h3>
+              <h3>Sanitization</h3>
+  				</section>
+        </section>
+        <section>
+  				<section data-markdown>
+            <textarea data-template>
+              ## CSRF
+              ### Cross Site Request Forgery
+              Simple [page](/examples/csrf)
+              Simple [attack](/examples/csrf-attack) on the page
+            </textarea>
+    			</section>
+  			    <section data-markdown>
+              <textarea data-template>
+                ## CSRF Defense
+                Simple [page](/examples/csrf-defended) defended
+                
+                Simple [attack](/examples/csrf-attack-on-defended-form) on the defended page
+              </textarea>
+    			  </section>
+  				</section>
+  				<section data-markdown>
+            <textarea data-template>
+              ## Thank you!
+              ### I was Ran Bar-Zik from OATH :)
+              ### The presentaion is on Github: barzik.
+              ### Talk to me: @barzik or LinkedIn.
+              #### internet-israel.com
+              ###### Hosted on Cloud9\Amazon and used reveal.js 
+            </textarea>
+      		</section>		
+			</div>
+		</div>
+  </body>
+  <script src="/reveal/js/reveal.js"></script>
+  <script src="/reveal/plugin/markdown/marked.js"></script>
+  <script src="/reveal/plugin/markdown/markdown.js"></script>
+  
+  <script>
+			Reveal.initialize();
+	</script>
+</html>
+
