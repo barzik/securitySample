@@ -20,6 +20,9 @@ router.get('/presentation-reversim-2018', function(req, res, next) {
     res.render('presentations/presentation-reversim-2018');
 });
 
+router.get('/presentation-school-6th-grader-hebrew', function(req, res, next) {
+    res.render('presentations/presentation-school-6th-grader-hebrew');
+});
 
 
 module.exports = router;
