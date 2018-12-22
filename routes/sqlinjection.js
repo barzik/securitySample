@@ -13,13 +13,14 @@ router.all('/sqlinjection', function(req, res, next) {
     let results = '';
     const username = req.body['username'];
     const password = req.body['password'];
+
     if (username) {
         const query = `SELECT * FROM users WHERE username = "${username}" AND password = "${password}";`
         db.get(query, [], (err, row) => {
             if (err) {
-                throw err;
+                results = "Error occured!";
             }
-            if (row) {
+            else if (row) {
                 results = "approved!";
             }
             else {
@@ -51,3 +52,17 @@ function createDB(db) {
         db.run('INSERT INTO users (username, password) VALUES ("user2", "qwerty")');
     })
 }
+
+function escapeString(text) {
+    if (!text) {
+        return;
+    }
+    return text.replace(/(\"|\')/g, '\\$1');
+}
+
+
+    // const username = escapeString(req.body['username']);
+    // const password = escapeString(req.body['password']);
+// a" OR 1 = 1 --
+
+// a" OR 1 = 1 /*
