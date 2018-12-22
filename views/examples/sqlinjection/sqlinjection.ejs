@@ -5,7 +5,7 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>Search page</h1>
+    <h1>LOGIN page</h1>
   <div>
     <form method="post">
       <label for="username">Username</label>
@@ -17,6 +17,13 @@
     <% if (allPOSTParams['username']) { %>
       <strong>Result:</strong><%= results %>
     <% } %>
+    <% if (typeof query != 'undefined') { %>
+      <p>This is the query that runs in the DB:</p>
+      <p>
+      <strong>Query:</strong><%= query %>
+      </p>
+    <% } %>
+    
   </div>
   
 

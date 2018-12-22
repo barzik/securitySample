@@ -15,19 +15,17 @@ router.all('/sqlinjection', function(req, res, next) {
     const password = req.body['password'];
     if (username) {
         const query = `SELECT * FROM users WHERE username = "${username}" AND password = "${password}";`
-        console.log('2222', query)
         db.get(query, [], (err, row) => {
             if (err) {
                 throw err;
             }
-            console.log('11111', row)
             if (row) {
                 results = "approved!";
             }
             else {
                 results = "YOU SHALL NOT PASS!";
             }
-            res.render('examples/sqlinjection/sqlinjection', { allGETParams: req.query, allPOSTParams: req.body, results });
+            res.render('examples/sqlinjection/sqlinjection', { allGETParams: req.query, allPOSTParams: req.body, results, query });
         });
     }
     else {
