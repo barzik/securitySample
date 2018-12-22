@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SQL injection example</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Search page</h1>
+  <div>
+    <form method="post">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" />
+      <label for="password">Password</label>
+      <input type="text" id="password" name="password" />
+      <button type="submit">Submit</button>
+    </form>
+    <% if (allPOSTParams['username']) { %>
+      <strong>Result:</strong><%= results %>
+    <% } %>
+  </div>
+  
+
+  </body>
+</html>
