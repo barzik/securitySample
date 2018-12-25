@@ -24,5 +24,9 @@ router.get('/presentation-school-6th-grader-hebrew', function(req, res, next) {
     res.render('presentations/presentation-school-6th-grader-hebrew');
 });
 
+router.get('/presentation-wix-south-2018', function(req, res, next) {
+    res.render('presentations/presentation-wix-south-2018');
+});
+
 
 module.exports = router;

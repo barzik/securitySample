@@ -59,10 +59,18 @@ function escapeString(text) {
     }
     return text.replace(/(\"|\')/g, '\\$1');
 }
+// const username = escapeString(req.body['username']);
+// const password = escapeString(req.body['password']);
 
 
-    // const username = escapeString(req.body['username']);
-    // const password = escapeString(req.body['password']);
+
+
+
+
+
+
+
+
 // a" OR 1 = 1 --
 
 // a" OR 1 = 1 /*
