@@ -28,5 +28,10 @@ router.get('/presentation-wix-south-2018', function(req, res, next) {
     res.render('presentations/presentation-wix-south-2018');
 });
 
+router.get('/presentation-outbrain-2019', function(req, res, next) {
+    res.render('presentations/presentation-outbrain-2019');
+});
+
+
 
 module.exports = router;

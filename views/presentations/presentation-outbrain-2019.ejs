@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Attack & Defense</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/reveal/css/reveal.css" />
+    <link rel="stylesheet" href="/reveal/css/theme/night.css" />
+    
+  </head>
+  <body>
+    <div class="reveal">
+			<div class="slides">
+			  <section>
+			    <section data-markdown>
+            <textarea data-template>
+              ## Web security: Attack and Defence
+              ### Attacker and Programmer: Mano e Mano
+            </textarea>
+  				</section>
+  				<section data-markdown>
+            <textarea data-template>
+              ## Attacker: Noam Rotem
+              ### Exprienced hacker
+              Twitter: @noamr
+            </textarea>
+  				</section>
+  				<section data-markdown>
+            <textarea data-template>
+              ## Defence: Ran Bar-Zik
+              ### Exprienced developer
+              Twitter: @barzik
+            </textarea>
+  				</section>
+        </section>
+				<section>
+    			<section data-markdown>
+            <textarea data-template>
+              # Legal information
+              ## DO NOT HACK
+            </textarea>
+    			</section>
+    			<section data-markdown>
+            <textarea data-template>
+              # Why do we learn it?
+              #### Learn to break === Learn to protect
+            </textarea>
+    			</section>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            ## SQL injection
+            <p><a href="/sqlinjection/sqlinjection" target="_blank">My Extreme safe login page</a></p>
+          </textarea>
+    		</section>
+    		<section>
+    		  <section data-markdown>
+            <textarea data-template>
+              ## Command injection
+              <p><a href="/shellinjection/command-injection" target="_blank">Simple example of vulnerability</a></p>
+            </textarea>
+    		  </section>
+    		  <section data-markdown>
+            <textarea data-template>
+              ## Command injection attack
+              <p><a href="/shellinjection/command-injection-attack" target="_blank">Simple example of attack</a></p>
+            </textarea>
+    		  </section>
+          <section data-markdown>
+            <textarea data-template>
+              ### Server side Javascript injection (SSJS)
+              <p><a href="/shellinjection/ssjs" target="_blank">Simple example of the vulnerability</a></p>
+            </textarea>
+      		</section>
+      		<section data-markdown>
+            <textarea data-template>
+              ### SSJS demo
+              <p><a href="/shellinjection/ssjs-attack" target="_blank">Simple example of the attack</a></p>
+            </textarea>
+    		  </section>
+    		</section>
+    		<section>
+    		  <section data-markdown>
+            <textarea data-template>
+              ## Refelective XSS
+              ### Almost dead, dead to me
+              Simple to understand XSS, See [this example](/examples/xss?id=1)
+            </textarea>
+  				</section>
+  				<section data-markdown>
+            <textarea data-template>
+              ## Refelective "XSS"
+              ### You can still cheat
+              See [this example](/examples/xss?id=%3Cstyle%3Ebody%20{background-color:red}%3C/style%3E%3Ch1%3EThis%20is%20my%20site!%3C/h1%3E%3Ch2%3EYou%20owe%20me%20a%20lot%20of%20money!%20pay%20now%20in%20%3Ca%20href=evil.com%3EThis%20form%3C/a%3E%3C/h2%3E)
+            </textarea>
+  				</section>
+  				<section>
+            <h2>XSS with innerHTML - still live and kicking</h2>
+            <p><a href="/examples/xss?name=moshe">XSS by JS code</a>, now with <a href='/examples/xss?name=";alert(1);"'>real life demo</a></p>
+  				</section>
+  				<section>
+            <h2>HTML5 XSS</h2>
+              <h3>A new interesting vector</h3>
+              <p><a href="/examples/xss?videosrc=https://www.w3schools.com/tags/movie.ogg">XSS by HTML5 code</a>, now with <a href='/examples/xss/?videosrc=" onerror="alert(1)"'>JS</a></p>
+              <p>More at <a href="https://html5sec.org/">html5sec</a></p>
+  				</section>
+    		</section>
+    		<section>
+    		  <section data-markdown>
+            <textarea data-template>
+              ## CSP
+              ### Content Security Policy
+              ### In the nearest header next to you!
+            </textarea>
+    			</section>
+    			<section data-markdown>
+            <textarea data-template>
+              ## CSP - Setup
+              ### By meta or header
+              See this [example](/examples/csp)
+            </textarea>
+    			</section>
+    			<section data-markdown>
+            <textarea data-template>
+              ## CSP - Policy
+              ### Block all but one domain
+              See this - blocking all calls but one is OK [example](/examples/csp1)
+            </textarea>
+    			</section>
+    			<section data-markdown>
+            <textarea data-template>
+              ## CSP - Policy #2
+              ### Block all but one attribute
+              See this - blocking all calls but img-src is OK [example](/examples/csp2)
+            </textarea>
+    			</section>
+    		</section>
+    		<section>
+    		  <section data-markdown>
+            <textarea data-template>
+              ## CSRF
+              ### Cross Site Request Forgery
+              Simple [page](/examples/csrf)
+            </textarea>
+    			</section>
+    			<section data-markdown>
+            <textarea data-template>
+              ## CSRF - attack
+              Simple [attack](/examples/csrf-attack) on the page
+            </textarea>
+    			</section>
+				    <section data-markdown>
+              <textarea data-template>
+                ## CSRF Defense
+                Simple token implementation on [page](/examples/csrf-defended)
+              </textarea>
+    			  </section>
+    			  <section data-markdown>
+              <textarea data-template>
+                ## CSRF Attack defended
+                Simple token implementation on [page](/examples/csrf-attack-on-defended-form)
+              </textarea>
+    			  </section>
+				</section>
+    		  
+				<section data-markdown>
+          <textarea data-template>
+            ## Thank you!
+            ### We were Noam and Ran
+            ### The presentaion is on Github: barzik.
+            ### Talk to us @noamr , @barzik
+            #### internet-israel.com
+            ###### Hosted on Cloud9\Amazon and used reveal.js 
+          </textarea>
+    		</section>		
+			</div>
+		</div>
+  </body>
+  <script src="/reveal/js/reveal.js"></script>
+  <script src="/reveal/plugin/markdown/marked.js"></script>
+  <script src="/reveal/plugin/markdown/markdown.js"></script>
+  
+  <script>
+			Reveal.initialize();
+	</script>
+</html>
+

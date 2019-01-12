@@ -5,11 +5,19 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>CSRF example - imagine that this is a bank page</h1>
+    <h1>CSRF example - My bank account!</h1>
    <form action="/examples/csrf-target" method="post">
        <input id="username" name="username" type="hidden" value="MosheCohen"/>
        Transfer $<input type="number" id="sum" name="sum" /> to bank account <input type="text" id="name" name="name" />
        <button type="submit">Send</button>
    </form>
+  <script>
+    let  password = prompt('Hi MosheCohen! Insert the secret password!');
+
+    if (password !== '123456') {
+      alert('ACCESS denied!!!');
+      document.getElementsByTagName('BODY')[0].style.display = 'none';
+    }
+  </script>
   </body>
 </html>
