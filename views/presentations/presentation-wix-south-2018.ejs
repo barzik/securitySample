@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Front end security</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/reveal/css/reveal.css" />
+    <link rel="stylesheet" href="/reveal/css/theme/night.css" />
+    
+  </head>
+  <body>
+    <div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+          <textarea data-template>
+            ## I pity the fools (Injections)
+            ## Ran Bar-Zik
+            #### Developer @ Verizon media group
+              - Twitter: @barzik
+              - Telegram: interil
+              - web: internet-israel.com
+              - Github: barzik
+          </textarea>
+				</section>
+				<section>
+				  <section data-markdown>
+            <textarea data-template>
+              # With all due respect...
+              Most of the client side in the world look like this:
+              ![alt text](/images/live-site-example/comment-1.png "Bad code!")
+            </textarea>
+    			</section>
+    			 <section data-markdown>
+            <textarea data-template>
+              # Or like this...
+              ![alt text](/images/live-site-example/comment-2.png "Bad code!")
+            </textarea>
+    			</section>
+    			 <section data-markdown>
+            <textarea data-template>
+              # Or like this 
+              #### (yup, this is real one folks!)
+              ![alt text](/images/live-site-example/comment-3.jpg "Bad code! ")
+              ###### <a href="https://twitter.com/noamr/status/1005107250330001409">Thanks Noam Rotem on this </a>
+            </textarea>
+    			</section>
+				</section>
+				<section>
+				  <section data-markdown>
+            <textarea data-template>
+              # SQL Injection
+              ## Yes, this is still here...
+            </textarea>
+    			</section>
+    			<section data-markdown>
+            <textarea data-template>
+              ## This is how it looks, See [this example](/sqlinjection/sqlinjection)
+            </textarea>
+    			</section>
+				</section>
+				<section>
+  				<section data-markdown>
+            <textarea data-template>
+              # XSS
+              ## Cross site scripting
+            </textarea>
+  				</section>
+  				<section data-markdown>
+            <textarea data-template>
+              ## Refelective XSS
+              ### Almost dead, dead to me
+              Simple to understand XSS, See [this example](/examples/xss?id=1)
+            </textarea>
+  				</section>
+  				<section data-markdown>
+            <textarea data-template>
+              ## Refelective "XSS"
+              ### You can still cheat
+              See [this example](/examples/xss?id=%3Cstyle%3Ebody%20{background-color:red}%3C/style%3E%3Ch1%3EThis%20is%20my%20site!%3C/h1%3E%3Ch2%3EYou%20owe%20me%20a%20lot%20of%20money!%20pay%20now%20in%20%3Ca%20href=evil.com%3EThis%20form%3C/a%3E%3C/h2%3E)
+            </textarea>
+  				</section>
+  				<section>
+            <h2>XSS with innerHTML - still live and kicking</h2>
+            <p><a href="/examples/xss?name=moshe">XSS by JS code</a>, now with <a href='/examples/xss?name=";alert(1);"'>real life demo</a></p>
+  				</section>
+  				<section>
+            <h2>HTML5 XSS</h2>
+              <h3>A new interesting vector</h3>
+              <p><a href="/examples/xss?videosrc=https://www.w3schools.com/tags/movie.ogg">XSS by HTML5 code</a>, now with <a href='/examples/xss/?videosrc=" onerror="alert(1)"'>JS</a></p>
+              <p>More at <a href="https://html5sec.org/">html5sec</a></p>
+  				</section>
+				</section>
+				<section>
+				  <section data-markdown>
+            <textarea data-template>
+              ## ClickJacking
+              ### Stealing user action and session
+              Simple [page](/examples/clickjackingd) that we will attack
+              The [attack](/examples/clickjacking)
+            </textarea>
+    			</section>
+				  <section data-markdown>
+            <textarea data-template>
+              ## ClickJacking Defense
+              ### Stealling user action and session
+              ```javascript
+              res.set('Content-Security-Policy', 'frame-ancestors \'none\'');
+              ```
+              OR
+              ```javascript
+              res.set('X-Frame-Options', 'DENY');
+              ```
+            </textarea>
+    			</section>		
+				</section>
+				<section data-markdown>
+          <textarea data-template>
+            ## Thank you!
+            ### I was Ran Bar-Zik from OATH :)
+            ### The presentaion is on Github: barzik.
+            ### Talk to me: @barzik or LinkedIn.
+            #### internet-israel.com
+            ###### Hosted on Cloud9\Amazon and used reveal.js 
+          </textarea>
+    		</section>		
+			</div>
+		</div>
+  </body>
+  <script src="/reveal/js/reveal.js"></script>
+  <script src="/reveal/plugin/markdown/marked.js"></script>
+  <script src="/reveal/plugin/markdown/markdown.js"></script>
+  
+  <script>
+			Reveal.initialize();
+	</script>
+</html>
+

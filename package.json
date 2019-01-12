@@ -15,6 +15,7 @@
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
     "reveal.js": "github:hakimel/reveal.js#master",
+    "sqlite3": "^4.0.4",
     "validator": "^10.7.1"
   },
   "devDependencies": {

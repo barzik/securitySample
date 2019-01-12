@@ -7,6 +7,8 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const examplesRouter = require('./routes/examples');
 const shellInjectionRouter = require('./routes/shellinjection');
+const sqlInjectionRouter = require('./routes/sqlinjection');
+
 const validateRouter = require('./routes/validate');
 
 
@@ -28,6 +30,7 @@ app.use('/reveal', express.static(__dirname + '/node_modules/reveal.js'));
 app.use('/', indexRouter);
 app.use('/examples', examplesRouter);
 app.use('/shellinjection', shellInjectionRouter);
+app.use('/sqlinjection', sqlInjectionRouter);
 app.use('/validate', validateRouter);
 
 
