@@ -57,7 +57,7 @@ function escapeString(text) {
     if (!text) {
         return;
     }
-    return text.replace(/(\")/g, '\\$1');
+    return text.replace(/(\"|\-)/g, '\\$1');
 }
 // const username = escapeString(req.body['username']);
 // const password = escapeString(req.body['password']);
