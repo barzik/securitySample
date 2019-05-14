@@ -18,14 +18,26 @@
       <strong>Result:</strong><%= results %>
     <% } %>
     <% if (typeof query != 'undefined') { %>
-      <p>This is the query that runs in the DB:</p>
-      <p>
-      <strong>Query:</strong><%= query %>
-      </p>
+      <small><a href="#" onclick="showMe()">Click to see some hint</a></small>
+      <div id="hint" style="display: none">
+        <p>This is the query that runs in the DB:</p>
+        <p>
+        <strong>Query:</strong><%= query %>
+        </p>
+      </div>
     <% } %>
     
   </div>
-  
+  <script>
+    function showMe() {
+      const hint = document.getElementById('hint');
+      if (hint.style.display === 'none') {
+        hint.style.display = 'block';
+      } else {
+        hint.style.display = 'none';
+      }
+    }
+  </script>
 
   </body>
 </html>

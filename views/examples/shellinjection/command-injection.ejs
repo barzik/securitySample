@@ -4,13 +4,29 @@
     <title>SSJS</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
+  <style>
+    .file_name {
+      cursor: pointer;
+    }
+  </style>
   <body>
     <h1>Command injection</h1>
     <form method="POST" action="/shellinjection/command-injection-api">
-    Download zip of the following file
+    The server has several files for you: demofile.txt, admin.txt, password.txt
+    <br />
+    <br />C:\
+    <br />├── <span class="file_name" onclick="activate('demofile.txt')">demofile.txt</span>
+    <br />├── <span class="file_name" onclick="activate('admin.txt')">admin.txt</span>
+    <br />└── <span class="file_name" onclick="activate('password.txt')">password.txt</span>
+    <br />Download zip of the following file:
     <input name="file_path" id="file_path" type="text" value="demofile.txt" />
     <button type="submit">Download</button>
     </form>
-    
+    <script>
+      function activate(fileName) {
+        const filePathValue = document.getElementById('file_path');
+        filePathValue.value = fileName;
+      }
+    </script>
   </body>
 </html>

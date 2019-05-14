@@ -58,6 +58,23 @@
     			</section>
 				</section>
 				<section>
+          <section data-markdown>
+            <textarea data-template>
+              ## Command injection
+              <p><a href="/shellinjection/command-injection" target="_blank">Simple example of vulnerability</a></p>
+              <p><a href="/shellinjection/command-injection-attack" target="_blank">Simple example of attack</a></p>
+            </textarea>
+    		  </section>
+    		  <section data-markdown>
+            <textarea data-template>
+              ## Command injection defense
+              1. Use spawn (avoid `{shell: true}`) See [this PR](https://github.com/barzik/branch-name-lint/pull/5/files) for example.
+              1. Or use any other command that use arguments instead of string.
+              1. Validate everything.
+            </textarea>
+    		  </section>
+        </section>
+				<section>
   				<section data-markdown>
             <textarea data-template>
               # XSS
