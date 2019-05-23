@@ -62,6 +62,11 @@ router.get('/csp2', function(req, res, next) {
     res.render('examples/csp2', { allGETParams: req.query, allPOSTParams: req.body });
 });
 
+router.get('/csp3', function(req, res, next) {
+    res.render('examples/csp3', { allGETParams: req.query, allPOSTParams: req.body });
+});
+
+
 router.get('/clickjacking', function(req, res, next) {
     res.render('examples/clickjacking', { allGETParams: req.query, allPOSTParams: req.body });
 });

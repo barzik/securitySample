@@ -8,6 +8,10 @@ router.get('/', function(req, res, next) {
     res.render('index', { title: 'Express' });
 });
 
+router.get('/social', function(req, res, next) {
+    res.render('examples/privacy/social');
+});
+
 router.get('/etag', function(req, res, next) {
 
     res.append('Last-Modified', (new Date(10000000000)).toUTCString());
