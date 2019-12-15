@@ -36,5 +36,11 @@ router.get('/presentation-reversim-2019', function(req, res, next) {
     res.render('presentations/presentation-reversim-2019');
 });
 
+router.get('/presentation-front-end-2019', (req, res, next) => {
+    res.render('presentations/presentation-front-end-2019');
+});
+
+
+
 
 module.exports = router;

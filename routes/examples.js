@@ -52,6 +52,10 @@ router.get('/reflected-xss-react', function(req, res, next) {
     res.render('examples/reflectedXSS-react', { allGETParams: req.query, allPOSTParams: req.body });
 });
 
+router.get('/prototype-pollution', function(req, res, next) {
+    res.render('examples/prototype-pollution', { allGETParams: req.query, allPOSTParams: req.body });
+});
+
 router.all('/show-all-params', parseForm, csrfProtection, function(req, res, next) {
     res.render('examples/show-all-params', { allGETParams: req.query, allPOSTParams: req.body });
 });
