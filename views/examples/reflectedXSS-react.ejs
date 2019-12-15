@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>XSS Reflected Reacr</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <div>
+      <h2>Demo information:</h2>
+      <p><a href="?src=<span>Hello</span>">Nice href</a></p>
+    </div>
+    
+
+<script type="text/babel">
+const user_supplied = <%- encodeURI(allGETParams['src']) %>;
+
+class UserProfilePage extends React.Component {
+  render() {
+    return (
+      <div dangerouslySetInnerHTML={user_supplied} />
+    )
+  }
+}
+    
+  const target = document.getElementById('content');
+  ReactDOM.render(
+  <UserProfilePage />,
+  target
+  );
+</script>
+  </body>
+</html>

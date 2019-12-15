@@ -40,6 +40,18 @@ router.get('/xss', function(req, res, next) {
     res.render('examples/xss', { allGETParams: req.query, allPOSTParams: req.body });
 });
 
+router.get('/reflected-xss-simple', function(req, res, next) {
+    res.render('examples/reflectedXSS-simple', { allGETParams: req.query, allPOSTParams: req.body });
+});
+
+router.get('/reflected-xss-inner', function(req, res, next) {
+    res.render('examples/reflectedXSS-inner', { allGETParams: req.query, allPOSTParams: req.body });
+});
+
+router.get('/reflected-xss-react', function(req, res, next) {
+    res.render('examples/reflectedXSS-react', { allGETParams: req.query, allPOSTParams: req.body });
+});
+
 router.all('/show-all-params', parseForm, csrfProtection, function(req, res, next) {
     res.render('examples/show-all-params', { allGETParams: req.query, allPOSTParams: req.body });
 });
