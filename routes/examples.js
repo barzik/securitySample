@@ -40,6 +40,18 @@ router.get('/xss', function(req, res, next) {
     res.render('examples/xss', { allGETParams: req.query, allPOSTParams: req.body });
 });
 
+router.get('/reflected-xss-simple', function(req, res, next) {
+    res.render('examples/reflectedXSS-simple', { allGETParams: req.query, allPOSTParams: req.body });
+});
+
+router.get('/reflected-xss-inner', function(req, res, next) {
+    res.render('examples/reflectedXSS-inner', { allGETParams: req.query, allPOSTParams: req.body });
+});
+
+router.get('/reflected-xss-react', function(req, res, next) {
+    res.render('examples/reflectedXSS-react', { allGETParams: req.query, allPOSTParams: req.body });
+});
+
 router.all('/show-all-params', parseForm, csrfProtection, function(req, res, next) {
     res.render('examples/show-all-params', { allGETParams: req.query, allPOSTParams: req.body });
 });
@@ -62,13 +74,18 @@ router.get('/csp2', function(req, res, next) {
     res.render('examples/csp2', { allGETParams: req.query, allPOSTParams: req.body });
 });
 
+router.get('/csp3', function(req, res, next) {
+    res.render('examples/csp3', { allGETParams: req.query, allPOSTParams: req.body });
+});
+
+
 router.get('/clickjacking', function(req, res, next) {
     res.render('examples/clickjacking', { allGETParams: req.query, allPOSTParams: req.body });
 });
 
 router.get('/clickjackingd', function(req, res, next) {
     //res.set('Content-Security-Policy', 'frame-ancestors \'none\'');
-    res.set('X-Frame-Options', 'sameorigin');
+    // res.set('X-Frame-Options', 'sameorigin');
     // DONT FORGET THE SHIFT
 
     res.render('examples/clickjackingd', { allGETParams: req.query, allPOSTParams: req.body });

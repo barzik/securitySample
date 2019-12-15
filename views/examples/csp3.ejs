@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSP</title>
+    <meta http-equiv="Content-Security-Policy" 
+    content="default-src 'self'; require-sri-for script;">
+  </head>
+  <body>
+    <h1>CSP HASH example</h1>
+    <div id="content"></div>
+    <pre>Hash calculated by:
+    cat securitySample/public/javascript/good.js | openssl dgst -sha384 -binary | openssl base64 -A</pre>
+    <script src='/javascript/good.js'
+      integrity="sha384-Ss2b9qke0JugcHFBO4J0cg+w4u1AkpdluWsNaEknSp6XLmcMZZ84Xx31EzSFixH5"
+    ></script>
+  </body>
+</html>

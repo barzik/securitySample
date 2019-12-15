@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>XSS Reflected Simple</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%- allGETParams['id'] %> Page</h1>
+    <p>
+      Welcome to my site! 
+    </p>
+    <nav>
+      <ul>
+        <li><a href="?id=info">Info page</a></li>
+        <li><a href="?id=about">About page</a></li>
+      </ul>
+    </nav>
+    <details>
+    <summary>Demo information:</summary>
+      <% if(allGETParams['id']) { %>
+        <p>URL: /examples/xss?name=<%- encodeURI(allGETParams['id']) %></p>
+      <% } %>
+      <% if(!allGETParams['id']) { %>
+        <p><a href="?id=<script>alert(1)</script>">Attack mode - XSS in FF</a></p>
+      <% } %>
+      <% if(!allGETParams['id']) { %>
+        <p><a href='?id=<style>p,ul,h1{display:%20none}%20body%20{%20background:%20red}%20pre:before%20{content:"BRING%20ME%20MONEY";font-size:50px}</style>'>Attack mode - CSS in XSS</a></p>
+      <% } %>
+    </details>
+      
+      <style>body%20{%20background:%20red}%20</style>
+    </pre>
+  
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>XSS Reflected Simple</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%- allGETParams['id'] %> Page</h1>
+    <p>
+      Welcome to my site! 
+      <img src="<%- allGETParams['src'] %>" />
+    </p>
+    <nav>
+      <ul>
+        <li><a href="?src=https://picsum.photos/id/237/200/300">Nice Image 1</a></li>
+        <li><a href="?src=https://picsum.photos/id/238/200/300">Nice Image 2</a></li>
+      </ul>
+    </nav>
+    <details>
+    <summary>Demo information:</summary>
+      <% if(!allGETParams['src']) { %>
+        <p><a href="?src=not-there-img%22%20onerror=%22alert(1)">Attack mode - XSS in FF</a></p>
+      <% } %>
+    </details>
+
+  </body>
+</html>
