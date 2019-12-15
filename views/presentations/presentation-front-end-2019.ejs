@@ -95,7 +95,7 @@
   				<section data-markdown>
             <textarea data-template>
               ## Stored XSS
-              ![alt text](/images/tweetdeck-xss.png "Stored XSS example")
+              ![alt text](/images/tweetdeck-xss.jpg "Stored XSS example")
             </textarea>
     		  </section>
   				<section>
@@ -142,7 +142,67 @@
               ##### [Demo](/examples/cookies)
             </textarea>
     		  </section>
+    		  <section data-markdown>
+            <textarea data-template>
+              ### Meet TRACE like methods
+              #### TRACE is not allowed on XHR anymore
+              ##### [Demo](/examples/cookies-trace-attack)
+            </textarea>
+    		  </section>
         </section>
+           		  <section>
+      		  <section data-markdown>
+              <textarea data-template>
+                ## CSP
+                ### Content Security Policy
+                ### In the nearest header next to you!
+              </textarea>
+      			</section>
+      			<section data-markdown>
+              <textarea data-template>
+                ## CSP - Setup
+                ### By meta or header
+                See this [example](/examples/csp)
+              </textarea>
+      			</section>
+      			<section data-markdown>
+              <textarea data-template>
+                ## CSP - Policy
+                ### Block all but one domain
+                See this - blocking all calls but one is OK [example](/examples/csp1)
+              </textarea>
+      			</section>
+      			<section data-markdown>
+              <textarea data-template>
+                ## CSP - Policy #2
+                ### Block all but one attribute
+                See this - blocking all calls but img-src is OK [example](/examples/csp2)
+              </textarea>
+      			</section>
+    		  </section>
+    		  <section>
+				  <section data-markdown>
+            <textarea data-template>
+              ## ClickJacking
+              ### Stealing user action and session
+              Simple [page](/examples/clickjackingd) that we will attack
+              The [attack](/examples/clickjacking)
+            </textarea>
+    			</section>
+				  <section data-markdown>
+            <textarea data-template>
+              ## ClickJacking Defense
+              ### Stealling user action and session
+              ```javascript
+              res.set('Content-Security-Policy', 'frame-ancestors \'none\'');
+              ```
+              OR
+              ```javascript
+              res.set('X-Frame-Options', 'DENY');
+              ```
+            </textarea>
+    			</section>		
+				</section>
         <section>
   				<section data-markdown>
             <textarea data-template>
@@ -164,11 +224,6 @@
   				<section data-markdown>
             <textarea data-template>
               ## Thank you!
-              ### I was Ran Bar-Zik from OATH :)
-              ### The presentaion is on Github: barzik.
-              ### Talk to me: @barzik or LinkedIn.
-              #### internet-israel.com
-              ###### Hosted on Cloud9\Amazon and used reveal.js 
             </textarea>
       		</section>		
 			</div>
