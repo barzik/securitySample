@@ -103,8 +103,8 @@ router.get('/clickjacking', function(req, res, next) {
 });
 
 router.get('/clickjackingd', function(req, res, next) {
-    //res.set('Content-Security-Policy', 'frame-ancestors \'none\'');
-    // res.set('X-Frame-Options', 'sameorigin');
+    // res.set('Content-Security-Policy', 'frame-ancestors \'none\'');
+    res.set('X-Frame-Options', 'deny');
     // DONT FORGET THE SHIFT
 
     res.render('examples/clickjackingd', { allGETParams: req.query, allPOSTParams: req.body });

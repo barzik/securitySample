@@ -9,6 +9,7 @@ const examplesRouter = require('./routes/examples');
 const shellInjectionRouter = require('./routes/shellinjection');
 const sqlInjectionRouter = require('./routes/sqlinjection');
 const privacyRouter = require('./routes/privacy');
+const headersRouter = require('./routes/headers');
 
 const validateRouter = require('./routes/validate');
 
@@ -34,6 +35,7 @@ app.use('/shellinjection', shellInjectionRouter);
 app.use('/sqlinjection', sqlInjectionRouter);
 app.use('/validate', validateRouter);
 app.use('/privacy', privacyRouter);
+app.use('/headers', headersRouter);
 
 
 
