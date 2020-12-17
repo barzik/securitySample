@@ -18,6 +18,7 @@
     <h2>List of examples</h2>
     <ul>
       <li>XSS Reflective Simple<a href="/examples/reflected-xss-simple">Example XSS</a></li>
+      <li>XSS Reflective attack<a href='/examples/xss?name=";alert(1);"'>Example reflected XSS attack</a></li>
       <li>XSS Reflective Inner<a href="/examples/reflected-xss-inner">Inner XSS</a></li>
       <li>DOM based XSS <a href="/examples/xss?videosrc=https://www.w3schools.com/tags/movie.ogg">Real life example</a>
       - and the <a href="/examples/xss/?videosrc=%22%20onerror=%22alert(1)%22">Attack</a></li>
@@ -28,7 +29,6 @@
       <li><a href="/validate">Demo of validation and sanitization</a></li>
       <li>Brute force <a href="/examples/bruteforce">Example #1 - Simple</a></li>
       <li>Brute force Prevention <a href="/examples/bruteforce-protected">Example #2 - Simple</a></li>
-      <li>CSRF Prevention <a href="/examples/csrf-defended">Example #1 - Simple</a></li>
       <li>SSJS injection <a href="/shellinjection/ssjs">Example #1 - Simple app</a> and the <a href="/shellinjection/ssjs-attack">attack</a></li>
       <li>Command injection <a href="/shellinjection/command-injection">Example #1 - Simple app</a> and the <a href="/shellinjection/command-injection-attack">attack</a></li>
       <li><a href="/examples/cookies">Cookies 101</a></li>
@@ -36,8 +36,17 @@
       <li><a href="/examples/csp1">CSP block one resource</a></li>
       <li><a href="/examples/csp2">CSP block one attribute</a></li>
       
+      
     
     </ul>
+    
+    <h2>CSRF</h2>
+      <ul>
+        <li><a href="/examples/csrf">CSRF example</a></li>
+        <li><a href="/examples/csrf-attack">CSRF attack</a></li>
+        <li>CSRF Prevention <a href="/examples/csrf-defended">CSRF defence</a></li>
+      </ul>
+    
     <h2>headers</h2>
       <ul>
         <li><a href="/headers/csp">CSP blocks all</a></li>
@@ -45,6 +54,11 @@
         <li><a href="/headers/csp-one-resource">CSP blocks all but one resource</a></li>
         <li><a href="/headers/csp-hash">CSP blocks all but hashed resource</a></li>
         <li><a href="/headers/no-sniff">No sniff attack</a></li>
+      </ul>
+    
+    <h2>SQL Injection</h2>
+      <ul>
+        <li><a href="/sqlinjection/sqlinjection">SQL Injection</a></li>
       </ul>
     
   </body>
