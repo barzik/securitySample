@@ -8,19 +8,20 @@
   </head>
   <body>
     <div id="content"></div>
-    <div>
-      <h2>Demo information:</h2>
-      <p><a href="?src=<span>Hello</span>">Nice href</a></p>
-    </div>
-    
 
 <script type="text/babel">
-const user_supplied = <%- encodeURI(allGETParams['src']) %>;
+
 
 class UserProfilePage extends React.Component {
+  
+  createMarkup() {
+    const user_supplied = 'fff" onerror="alert(1)"';
+    return {__html:`<img src="${user_supplied}" />`};
+  }
+
   render() {
     return (
-      <div dangerouslySetInnerHTML={user_supplied} />
+      <div dangerouslySetInnerHTML={this.createMarkup()} />
     )
   }
 }

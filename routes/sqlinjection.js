@@ -11,7 +11,7 @@ createDB(db); // Create inmemory DB
 
 router.all('/sqlinjection', function(req, res, next) {
     let results = '';
-    const username = req.body['username'];
+    const username = escapeString(req.body['username']);
     const password = req.body['password'];
 
     if (username) {
@@ -57,7 +57,7 @@ function escapeString(text) {
     if (!text) {
         return;
     }
-    return text.replace(/(\"|\-)/g, '\\$1');
+    return text.replace(/(\")/g, '\\$1');
 }
 // const username = escapeString(req.body['username']);
 // const password = escapeString(req.body['password']);

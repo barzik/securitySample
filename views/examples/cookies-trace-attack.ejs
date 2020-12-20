@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cookies</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  </head>
+  <body>
+    <h1>Cookies</h1>
+    <p>Get all cookies!</p>
+    <p>Printing cookie value by document.cookie</p>
+    <pre>document.cookie;</pre>
+    <div id="cookieValue"></div>
+    <p>Pay attention that HTTP only cookies are not there</p>
+    <script>
+    document.getElementById('cookieValue').innerText = document.cookie;
+    </script>
+    <p>But let's hijack the cookies by using TRACE</p>
+    <p>This button launch bad code, injected by XSS (reflected or stored)</p>
+    <button onclick="hijack()">HijackMe</button>
+    <script>
+      async function hijack() {
+        const response = await fetch('/examples/trace', {method: 'get'});
+        response.headers.forEach(console.log);
+        alert('HTTP ONLY COOKIE content is:' + response.headers.get('HTTPOnly'));
+      }
+    </script>
+  </body>
+</html>

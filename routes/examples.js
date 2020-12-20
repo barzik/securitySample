@@ -52,6 +52,19 @@ router.get('/reflected-xss-react', function(req, res, next) {
     res.render('examples/reflectedXSS-react', { allGETParams: req.query, allPOSTParams: req.body });
 });
 
+router.get('/prototype-pollution', function(req, res, next) {
+    res.render('examples/prototype-pollution', { allGETParams: req.query, allPOSTParams: req.body });
+});
+
+router.all('/trace', (req, res, next) => {
+    const cookiesObject = req.cookies;
+    console.log(cookiesObject)
+    res.append('Warning', '199 Miscellaneous warning')
+    Object.keys(cookiesObject).map(key => res.append(key, cookiesObject[key]));
+    const body = req.body || '';
+    res.status(200).send('sasasas');
+});
+
 router.all('/show-all-params', parseForm, csrfProtection, function(req, res, next) {
     res.render('examples/show-all-params', { allGETParams: req.query, allPOSTParams: req.body });
 });
@@ -60,6 +73,12 @@ router.get('/cookies', function(req, res, next) {
     res.cookie('HTTPOnly', 'some value', { maxAge: 900000, httpOnly: true });
     res.cookie('regularCookie', 'some value', { maxAge: 900000, httpOnly: false });
     res.render('examples/cookies');
+});
+
+router.get('/cookies-trace-attack', function(req, res, next) {
+    res.cookie('HTTPOnly', 'some value', { maxAge: 900000, httpOnly: true });
+    res.cookie('regularCookie', 'some value', { maxAge: 900000, httpOnly: false });
+    res.render('examples/cookies-trace-attack');
 });
 
 router.get('/csp', function(req, res, next) {
@@ -84,8 +103,8 @@ router.get('/clickjacking', function(req, res, next) {
 });
 
 router.get('/clickjackingd', function(req, res, next) {
-    //res.set('Content-Security-Policy', 'frame-ancestors \'none\'');
-    // res.set('X-Frame-Options', 'sameorigin');
+    // res.set('Content-Security-Policy', 'frame-ancestors \'none\'');
+    // res.set('X-Frame-Options', 'deny');
     // DONT FORGET THE SHIFT
 
     res.render('examples/clickjackingd', { allGETParams: req.query, allPOSTParams: req.body });
